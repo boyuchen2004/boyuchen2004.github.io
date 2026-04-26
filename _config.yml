@@ -12,7 +12,7 @@ site_theme               : "default" # The available themes options are "default
 title                    : "Boyu Chen"
 title_separator          : "-"
 name                     : &name "Boyu Chen"
-description              : &description "Boyu Chen's academic homepage"   # Update this with a general description of your site, this is the default if not overridden by a page
+description              : &description "Boyu Chen (陈博俣) — undergraduate at Tsinghua University, incoming PhD at MMLab@HKU advised by Prof. Ping Luo, Prof. Hongyang Li, and Prof. Yi Ma. Research on Robotics, Vision-Language-Action (VLA) models, and World Models."   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://boyuchen2004.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
