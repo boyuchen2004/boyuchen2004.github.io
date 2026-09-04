@@ -9,7 +9,7 @@ redirect_from:
 
 I am Boyu Chen (陈博俣), an undergraduate student at the Department of Automation, Tsinghua University.
 
-I will be joining MMLab@HKU as a PhD student in Fall 2026, fortunately advised by Prof. Ping Luo, Prof. Hongyang Li, and Prof. Yi Ma.
+I will be joining MMLab@HKU as a PhD student in Fall 2026, fortunately advised by Prof. Ping Luo, Prof. Shenghua Gao, and Prof. Yi Ma.
 
 🔭 Research Interests
 ======

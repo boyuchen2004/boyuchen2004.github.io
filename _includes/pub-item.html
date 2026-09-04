@@ -1,0 +1,31 @@
+{% assign post = include.post %}
+<article class="pub-item{% if include.series %} pub-item--series pub-item--{{ post.series_role }}{% endif %}" id="publication-{{ post.slug }}">
+  {% if post.teaser %}
+    <div class="pub-teaser">
+      <img src="{{ post.teaser | prepend: base_path }}" alt="{{ post.title | escape }}" />
+    </div>
+  {% endif %}
+  <div class="pub-body">
+    {% if post.series_label %}
+      <div class="pub-track">
+        <span class="pub-track__label">{{ post.series_label }}</span>
+        {% if post.series_positioning %}<span class="pub-track__positioning">{{ post.series_positioning }}</span>{% endif %}
+      </div>
+    {% endif %}
+    <h3 class="pub-title">{{ post.title }}</h3>
+    {% if post.authors %}<p class="pub-authors">{{ post.authors }}</p>{% endif %}
+    {% if post.notes %}<p class="pub-notes">{{ post.notes }}</p>{% endif %}
+    {% if post.venue %}<p class="pub-venue"><em>{{ post.venue }}{% if post.date %}, {{ post.date | date: "%Y" }}{% endif %}</em></p>{% endif %}
+    {% if post.excerpt %}<p class="pub-excerpt">{{ post.excerpt | markdownify }}</p>{% endif %}
+    {% if post.keywords %}
+      <ul class="pub-keywords" aria-label="Research keywords">
+        {% for keyword in post.keywords %}<li>{{ keyword }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+    <p class="pub-links">
+      {% if post.projecturl %}<a href="{{ post.projecturl }}">Project Page</a>{% endif %}
+      {% if post.paperurl %}{% if post.projecturl %} · {% endif %}<a href="{% if post.paperurl contains '://' %}{{ post.paperurl }}{% else %}{{ post.paperurl | prepend: base_path }}{% endif %}">Paper</a>{% endif %}
+      {% if post.codeurl %}{% if post.projecturl or post.paperurl %} · {% endif %}<a href="{{ post.codeurl }}">Code</a>{% endif %}
+    </p>
+  </div>
+</article>

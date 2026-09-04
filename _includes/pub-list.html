@@ -1,22 +1,31 @@
 {% include base_path %}
-{% for post in site.publications reversed %}
-<div class="pub-item">
-  {% if post.teaser %}
-    <div class="pub-teaser">
-      <img src="{{ post.teaser | prepend: base_path }}" alt="{{ post.title | escape }}" />
+{% assign unit_series = site.publications | where_exp: "post", "post.series_role" %}
+{% assign unit_core = site.publications | where: "series_role", "core" | first %}
+{% assign unit_extensions = unit_series | where_exp: "post", "post.series_role != 'core'" | sort: "series_order" %}
+{% assign other_publications = site.publications | where_exp: "post", "post.series_role == nil" | reverse %}
+
+<section class="unit-series" aria-labelledby="unit-series-title">
+  <header class="unit-series__intro">
+    <h3 id="unit-series-title">The UniT series</h3>
+    <p><strong>UniT</strong> introduces a shared physical language across humans and robots. <strong>Fe₀</strong> asks how it scales with heterogeneous data; <strong>AnyWorld</strong> asks how world models can turn human experience into data for stronger UniT policies.</p>
+  </header>
+
+  <div class="unit-series__publications">
+    {% include pub-item.html post=unit_core series=true %}
+
+    <div class="unit-series__extensions">
+      <p class="unit-series__extensions-label">Extensions from UniT</p>
+      {% for post in unit_extensions %}
+        {% include pub-item.html post=post series=true %}
+      {% endfor %}
     </div>
-  {% endif %}
-  <div class="pub-body">
-    <h3 class="pub-title">{{ post.title }}</h3>
-    {% if post.authors %}<p class="pub-authors">{{ post.authors }}</p>{% endif %}
-    {% if post.notes %}<p class="pub-notes">{{ post.notes }}</p>{% endif %}
-    {% if post.venue %}<p class="pub-venue"><em>{{ post.venue }}{% if post.date %}, {{ post.date | date: "%Y" }}{% endif %}</em></p>{% endif %}
-    {% if post.excerpt %}<p class="pub-excerpt">{{ post.excerpt | markdownify }}</p>{% endif %}
-    <p class="pub-links">
-      {% if post.projecturl %}<a href="{{ post.projecturl }}">Project Page</a>{% endif %}
-      {% if post.paperurl %}{% if post.projecturl %} · {% endif %}<a href="{{ post.paperurl | prepend: base_path }}">Paper</a>{% endif %}
-      {% if post.codeurl %}{% if post.projecturl or post.paperurl %} · {% endif %}<a href="{{ post.codeurl }}">Code</a>{% endif %}
-    </p>
   </div>
-</div>
-{% endfor %}
+</section>
+
+{% if other_publications.size > 0 %}
+  <div class="other-publications">
+    {% for post in other_publications %}
+      {% include pub-item.html post=post %}
+    {% endfor %}
+  </div>
+{% endif %}

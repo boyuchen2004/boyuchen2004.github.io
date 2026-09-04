@@ -23,7 +23,7 @@ redirect_from:
 <div class="entry">
   <strong>Ph.D. in Computer Science</strong> (incoming, Sep 2026)<br />
   MMLab, The University of Hong Kong<br />
-  Advisors: Prof. Ping Luo, Prof. Hongyang Li, Prof. Yi Ma
+  Advisors: Prof. Ping Luo, Prof. Shenghua Gao, Prof. Yi Ma
 </div>
 
 💼 Experience
