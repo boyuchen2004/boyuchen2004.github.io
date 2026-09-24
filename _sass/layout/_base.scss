@@ -474,6 +474,7 @@ b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a,
   }
 
   .pub-teaser {
+    position: relative;
     flex: 0 0 260px;
     margin-right: 22px;
     border: 1px solid var(--global-border-color);
@@ -484,6 +485,20 @@ b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a,
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    .pub-acceptance-banner {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 0.42em 0.7em;
+      background: #005f73;
+      color: #fff;
+      font-size: 0.82em;
+      font-weight: 700;
+      line-height: 1.25;
+      text-align: center;
     }
 
   }

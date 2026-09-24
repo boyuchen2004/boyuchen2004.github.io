@@ -3,7 +3,8 @@ title: "AnyWorld: Factorized Egocentric World Models for Cross-Embodiment Genera
 collection: publications
 permalink: /publication/2026-anyworld
 date: 2026-08-29
-venue: "Preprint"
+venue: "CoRL"
+acceptance_banner: "CoRL 2026"
 series_role: "world-model"
 series_order: 3
 series_label: "World-model direction"

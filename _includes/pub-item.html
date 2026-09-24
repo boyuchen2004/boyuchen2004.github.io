@@ -3,6 +3,7 @@
   {% if post.teaser %}
     <div class="pub-teaser">
       <img src="{{ post.teaser | prepend: base_path }}" alt="{{ post.title | escape }}" />
+      {% if post.acceptance_banner %}<span class="pub-acceptance-banner">{{ post.acceptance_banner }}</span>{% endif %}
     </div>
   {% endif %}
   <div class="pub-body">
