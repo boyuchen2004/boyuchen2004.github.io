@@ -19,6 +19,9 @@
     <meta name="citation_technical_report_institution" content="arXiv">
     <meta name="citation_technical_report_number" content="{{ page.arxiv_id }}">
   {% endif %}
+  {% if page.citation_doi %}
+    <meta name="citation_doi" content="{{ page.citation_doi | escape_once }}">
+  {% endif %}
   {% if page.citation_abstract %}
     <meta name="citation_abstract" content="{{ page.citation_abstract | strip_newlines | escape_once }}">
   {% endif %}
