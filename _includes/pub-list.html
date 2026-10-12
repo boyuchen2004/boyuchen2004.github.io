@@ -6,15 +6,14 @@
 
 <section class="unit-series" aria-labelledby="unit-series-title">
   <header class="unit-series__intro">
-    <h3 id="unit-series-title">The UniT series</h3>
-    <p><strong>UniT</strong> introduces a shared physical language across humans and robots. <strong>Fe₀</strong> asks how it scales with heterogeneous data; <strong>AnyWorld</strong> asks how world models can turn human experience into data for stronger UniT policies.</p>
+    <h3 id="unit-series-title">A shared physical language</h3>
+    <p>Connecting human experience and robot intelligence, from a shared representation to scalable learning and world models.</p>
   </header>
 
   <div class="unit-series__publications">
     {% include pub-item.html post=unit_core series=true %}
 
     <div class="unit-series__extensions">
-      <p class="unit-series__extensions-label">Extensions from UniT</p>
       {% for post in unit_extensions %}
         {% include pub-item.html post=post series=true %}
       {% endfor %}
@@ -29,7 +28,6 @@
         <section class="unit-series" aria-labelledby="story-{{ post.slug }}">
           <header class="unit-series__intro">
             <h3 id="story-{{ post.slug }}">{{ post.story_title }}</h3>
-            <p>{{ post.story_summary }}</p>
           </header>
           {% include pub-item.html post=post %}
         </section>

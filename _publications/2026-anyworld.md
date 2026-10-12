@@ -1,5 +1,7 @@
 ---
 title: "AnyWorld: Factorized Egocentric World Models for Cross-Embodiment Generalization"
+display_name: "AnyWorld"
+display_summary: "Learning through world models"
 collection: publications
 permalink: /publication/2026-anyworld
 date: 2026-08-29

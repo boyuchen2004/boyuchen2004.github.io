@@ -1,5 +1,5 @@
 {% assign post = include.post %}
-<article class="pub-item{% if include.series %} pub-item--series pub-item--{{ post.series_role }}{% endif %}" id="publication-{{ post.slug }}">
+<article class="pub-item{% if include.series %} pub-item--series pub-item--{{ post.series_role }}{% endif %}{% if post.story_title %} pub-item--independent{% endif %}" id="publication-{{ post.slug }}">
   {% if post.teaser %}
     <div class="pub-teaser">
       <img src="{{ post.teaser | prepend: base_path }}" alt="{{ post.title | escape }}" />
@@ -7,26 +7,16 @@
     </div>
   {% endif %}
   <div class="pub-body">
-    {% if post.series_label %}
-      <div class="pub-track">
-        <span class="pub-track__label">{{ post.series_label }}</span>
-      </div>
-    {% endif %}
-    <h3 class="pub-title"><a href="{{ post.url | prepend: base_path }}">{{ post.title }}</a></h3>
-    {% if post.authors_short %}
-      <details class="pub-authors-expand">
-        <summary>{{ post.authors_short }} <span class="pub-authors-toggle">Full authors</span></summary>
-        <p class="pub-authors">{{ post.authors }}</p>
-      </details>
-    {% elsif post.authors %}<p class="pub-authors">{{ post.authors }}</p>{% endif %}
-    {% if post.notes %}<p class="pub-notes">{{ post.notes }}</p>{% endif %}
-    {% if post.venue %}<p class="pub-venue"><em>{{ post.venue }}{% if post.date %}, {{ post.date | date: "%Y" }}{% endif %}</em></p>{% endif %}
+    <h3 class="pub-title"><a href="{{ post.url | prepend: base_path }}" title="{{ post.title | escape }}">{{ post.display_name | default: post.title }}</a></h3>
+    {% if post.display_summary %}<p class="pub-summary">{{ post.display_summary }}</p>{% endif %}
+    <details class="pub-authors-expand">
+      <summary>{{ post.authors_short | default: post.authors }} <span class="pub-authors-toggle">Details</span></summary>
+      <p class="pub-full-title">{{ post.title }}</p>
+      {% if post.authors_short %}<p class="pub-authors">{{ post.authors }}</p>{% endif %}
+      {% if post.notes %}<p class="pub-notes">{{ post.notes }}</p>{% endif %}
+      {% if post.venue %}<p class="pub-venue">{{ post.venue }}, {{ post.date | date: "%Y" }}</p>{% endif %}
+    </details>
     {% if post.excerpt %}<div class="pub-excerpt">{{ post.excerpt | markdownify }}</div>{% endif %}
-    {% if post.keywords %}
-      <ul class="pub-keywords" aria-label="Research keywords">
-        {% for keyword in post.keywords %}<li>{{ keyword }}</li>{% endfor %}
-      </ul>
-    {% endif %}
     {% include pub-metrics.html post=post %}
     <p class="pub-links">
       {% if post.projecturl %}<a href="{{ post.projecturl }}">Project Page</a>{% endif %}
