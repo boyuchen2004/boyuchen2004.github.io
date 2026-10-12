@@ -1,0 +1,19 @@
+{% assign metrics = include.post.community_metrics %}
+{% if metrics %}
+<div class="pub-metrics" aria-label="Community recognition and project metrics">
+  <div class="pub-metrics__items">
+    {% if metrics.hf_rank %}
+      <a class="pub-metrics__badge pub-metrics__badge--highlight" href="{{ metrics.hf_rank_url }}" title="Hugging Face Daily Papers, {{ metrics.hf_rank_date }}">🤗 HF Daily #{{ metrics.hf_rank }} <span>· {{ metrics.hf_rank_date | date: "%b %d, %Y" }}</span></a>
+    {% elsif metrics.hf_url %}
+      <a class="pub-metrics__badge" href="{{ metrics.hf_url }}">🤗 Hugging Face Papers ↗</a>
+    {% endif %}
+    {% if metrics.github_stars != nil %}
+      <a class="pub-metrics__badge" href="{{ include.post.codeurl }}/stargazers">★ {{ metrics.github_stars }} GitHub stars</a>
+    {% endif %}
+    {% if metrics.scholar_url %}
+      <a class="pub-metrics__badge" href="{{ metrics.scholar_url }}">{% if metrics.scholar_citations != nil %}{{ metrics.scholar_citations }} citations · {% endif %}Semantic Scholar ↗</a>
+    {% endif %}
+  </div>
+  <p class="pub-metrics__date">Counts checked {{ metrics.checked | date: "%b %d, %Y" }} · Follow links for current metrics.</p>
+</div>
+{% endif %}

@@ -23,6 +23,7 @@
         {% for keyword in post.keywords %}<li>{{ keyword }}</li>{% endfor %}
       </ul>
     {% endif %}
+    {% include pub-metrics.html post=post %}
     <p class="pub-links">
       {% if post.projecturl %}<a href="{{ post.projecturl }}">Project Page</a>{% endif %}
       {% if post.paperurl %}{% if post.projecturl %} · {% endif %}<a href="{% if post.paperurl contains '://' %}{{ post.paperurl }}{% else %}{{ post.paperurl | prepend: base_path }}{% endif %}">Paper</a>{% endif %}

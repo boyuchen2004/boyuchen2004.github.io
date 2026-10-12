@@ -49,6 +49,11 @@ keywords:
   - "Visual grounding"
   - "Perceptual pretraining"
   - "Physical intelligence"
+community_metrics:
+  checked: "2026-10-12"
+  hf_url: "https://huggingface.co/papers/2609.39601"
+  github_stars: 18
+  scholar_url: "https://www.semanticscholar.org/paper/1c36737b788f020ef9881a417275ed3d6a55844d"
 ---
 Qize Yu, Lianrui Fan, Boyu Chen, Jiaqi Liang, Xini Ding, Yue Chen, Zetian Song, Yuran Wang, Yi Zou, Kaixuan Wang, Tianxing Chen, Wenxuan Song, Bohan Zhou, Mingleyang Li, Siqiao Huang, Yuqi Ye, Caigao Jiang, Wei Wei, Ruihai Wu, Hang Zhang, Yixiao Ge, Shuchang Zhou, Shilong Liu, Xianming Liu, Ping Luo, Shiyu Huang.
 
