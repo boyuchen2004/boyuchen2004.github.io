@@ -40,6 +40,11 @@ codeurl: "https://github.com/xpeng-robotics/AnyWorld"
 citation: "Cheng Chen, Jerry Bai, Jiacheng Wei, Boyu Chen, Xiaoji Zheng, Fan Wu, Minghao Yang, Tianrun Chen, Ruibo Li, Xiaoyu Yue, Xiaoyang Guo, Yixiao Ge, Guosheng Lin, and Fayao Liu. &quot;AnyWorld: Factorized Egocentric World Models for Cross-Embodiment Generalization.&quot; arXiv preprint arXiv:2608.29242, 2026."
 excerpt: "AnyWorld extends **UniT through world modeling**, turning human interactions into controllable robot-native experience for downstream UniT policy adaptation."
 citation_doi: "10.48550/arXiv.2608.29242"
+community_metrics:
+  checked: "2026-10-12"
+  scholar_url: "https://www.semanticscholar.org/paper/d29282bee802ec6211b801acc66f4023405038ae"
+  scholar_citations: 3
+authors_short: "Cheng Chen, Jerry Bai, Jiacheng Wei, <strong>Boyu Chen</strong>, Xiaoji Zheng, et al."
 ---
 Cheng Chen, Jerry Bai, Jiacheng Wei, Boyu Chen, Xiaoji Zheng, Fan Wu, Minghao Yang, Tianrun Chen, Ruibo Li, Xiaoyu Yue, Xiaoyang Guo, Yixiao Ge, Guosheng Lin, Fayao Liu.
 

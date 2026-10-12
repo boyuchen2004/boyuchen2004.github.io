@@ -54,6 +54,7 @@ community_metrics:
   hf_url: "https://huggingface.co/papers/2609.39601"
   github_stars: 18
   scholar_url: "https://www.semanticscholar.org/paper/1c36737b788f020ef9881a417275ed3d6a55844d"
+authors_short: "Qize Yu*&Dagger;, Lianrui Fan*, <strong>Boyu Chen</strong>*, Jiaqi Liang*, Xini Ding*, et al."
 ---
 Qize Yu, Lianrui Fan, Boyu Chen, Jiaqi Liang, Xini Ding, Yue Chen, Zetian Song, Yuran Wang, Yi Zou, Kaixuan Wang, Tianxing Chen, Wenxuan Song, Bohan Zhou, Mingleyang Li, Siqiao Huang, Yuqi Ye, Caigao Jiang, Wei Wei, Ruihai Wu, Hang Zhang, Yixiao Ge, Shuchang Zhou, Shilong Liu, Xianming Liu, Ping Luo, Shiyu Huang.
 

@@ -15,6 +15,10 @@ I will be joining MMLab@HKU as a PhD student in Fall 2026, fortunately advised b
 ======
 My research interests lie at the intersection of **Robotics**, **Vision-Language-Action (VLA) models**, and **World Models**. I am particularly interested in building generalist agents that can perceive, reason, and act in the physical world.
 
+📝 Publications {#publications}
+======
+{% include pub-list.html %}
+
 💼 Experience
 ======
 <div class="edu">
@@ -36,10 +40,6 @@ My research interests lie at the intersection of **Robotics**, **Vision-Language
     Sep 2022 – Present · GPA <strong>4.0 / 4.0</strong> · Ranked <strong>1 / 145</strong>
   </div>
 </div>
-
-📝 Publications
-======
-{% include pub-list.html %}
 
 🏆 Honors & Awards
 ======

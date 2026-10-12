@@ -10,14 +10,18 @@
     {% if post.series_label %}
       <div class="pub-track">
         <span class="pub-track__label">{{ post.series_label }}</span>
-        {% if post.series_positioning %}<span class="pub-track__positioning">{{ post.series_positioning }}</span>{% endif %}
       </div>
     {% endif %}
-    <h3 class="pub-title">{{ post.title }}</h3>
-    {% if post.authors %}<p class="pub-authors">{{ post.authors }}</p>{% endif %}
+    <h3 class="pub-title"><a href="{{ post.url | prepend: base_path }}">{{ post.title }}</a></h3>
+    {% if post.authors_short %}
+      <details class="pub-authors-expand">
+        <summary>{{ post.authors_short }} <span class="pub-authors-toggle">Full authors</span></summary>
+        <p class="pub-authors">{{ post.authors }}</p>
+      </details>
+    {% elsif post.authors %}<p class="pub-authors">{{ post.authors }}</p>{% endif %}
     {% if post.notes %}<p class="pub-notes">{{ post.notes }}</p>{% endif %}
     {% if post.venue %}<p class="pub-venue"><em>{{ post.venue }}{% if post.date %}, {{ post.date | date: "%Y" }}{% endif %}</em></p>{% endif %}
-    {% if post.excerpt %}<p class="pub-excerpt">{{ post.excerpt | markdownify }}</p>{% endif %}
+    {% if post.excerpt %}<div class="pub-excerpt">{{ post.excerpt | markdownify }}</div>{% endif %}
     {% if post.keywords %}
       <ul class="pub-keywords" aria-label="Research keywords">
         {% for keyword in post.keywords %}<li>{{ keyword }}</li>{% endfor %}
