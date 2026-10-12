@@ -25,7 +25,17 @@
 {% if other_publications.size > 0 %}
   <div class="other-publications">
     {% for post in other_publications %}
-      {% include pub-item.html post=post %}
+      {% if post.story_title %}
+        <section class="unit-series" aria-labelledby="story-{{ post.slug }}">
+          <header class="unit-series__intro">
+            <h3 id="story-{{ post.slug }}">{{ post.story_title }}</h3>
+            <p>{{ post.story_summary }}</p>
+          </header>
+          {% include pub-item.html post=post %}
+        </section>
+      {% else %}
+        {% include pub-item.html post=post %}
+      {% endif %}
     {% endfor %}
   </div>
 {% endif %}

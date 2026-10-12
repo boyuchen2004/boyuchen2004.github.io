@@ -27,6 +27,7 @@
       {% if post.projecturl %}<a href="{{ post.projecturl }}">Project Page</a>{% endif %}
       {% if post.paperurl %}{% if post.projecturl %} · {% endif %}<a href="{% if post.paperurl contains '://' %}{{ post.paperurl }}{% else %}{{ post.paperurl | prepend: base_path }}{% endif %}">Paper</a>{% endif %}
       {% if post.codeurl %}{% if post.projecturl or post.paperurl %} · {% endif %}<a href="{{ post.codeurl }}">Code</a>{% endif %}
+      {% if post.bibtexurl %}{% if post.projecturl or post.paperurl or post.codeurl %} · {% endif %}<a href="{{ post.bibtexurl | prepend: base_path }}">BibTeX</a> · <a href="{{ post.url | prepend: base_path }}#citation">Citation details</a>{% endif %}
     </p>
   </div>
 </article>

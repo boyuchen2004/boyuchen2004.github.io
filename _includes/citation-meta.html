@@ -8,11 +8,14 @@
   {% endif %}
   {% if page.paperurl %}
     {% if page.paperurl contains "://" %}
-      {% assign citation_pdf_url = page.paperurl %}
+      {% assign citation_pdf_url = nil %}
+      {% if page.paperurl contains site.url %}
+        {% assign citation_pdf_url = page.paperurl %}
+      {% endif %}
     {% else %}
       {% assign citation_pdf_url = page.paperurl | prepend: site.baseurl | prepend: site.url %}
     {% endif %}
-    <meta name="citation_pdf_url" content="{{ citation_pdf_url }}">
+    {% if citation_pdf_url %}<meta name="citation_pdf_url" content="{{ citation_pdf_url }}">{% endif %}
   {% endif %}
   {% if page.arxiv_id %}
     <meta name="citation_arxiv_id" content="{{ page.arxiv_id }}">
@@ -21,6 +24,15 @@
   {% endif %}
   {% if page.citation_doi %}
     <meta name="citation_doi" content="{{ page.citation_doi | escape_once }}">
+  {% endif %}
+  {% if page.citation_journal %}
+    <meta name="citation_journal_title" content="{{ page.citation_journal | escape_once }}">
+  {% endif %}
+  {% if page.citation_source_url %}
+    <meta name="citation_url" content="{{ page.citation_source_url | escape_once }}">
+  {% endif %}
+  {% if page.bibtexurl %}
+    <link rel="alternate" type="application/x-bibtex" href="{{ page.bibtexurl | absolute_url }}">
   {% endif %}
   {% if page.citation_abstract %}
     <meta name="citation_abstract" content="{{ page.citation_abstract | strip_newlines | escape_once }}">
