@@ -1,5 +1,6 @@
 ---
 title: "GroundingPI: A Grounding Foundation Model towards Physical Intelligence with Visual Primitives"
+display_tldr: "**Points and boxes** become **reusable visual primitives**, improving perception for **robotic manipulation and autonomous driving**."
 display_name: "GroundingPI"
 display_summary: "Reusable perception through visual primitives"
 collection: "publications"
@@ -53,6 +54,7 @@ keywords:
   - "Physical intelligence"
 community_metrics:
   checked: "2026-10-12"
+  hf_model: "GroundingPI/GroundingPI"
   hf_url: "https://huggingface.co/papers/2609.39601"
   github_stars: 18
   scholar_url: "https://www.semanticscholar.org/paper/1c36737b788f020ef9881a417275ed3d6a55844d"

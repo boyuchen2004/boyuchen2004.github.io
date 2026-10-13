@@ -6,14 +6,15 @@
 
 <section class="unit-series" aria-labelledby="unit-series-title">
   <header class="unit-series__intro">
-    <h3 id="unit-series-title">A shared physical language</h3>
-    <p>Connecting human experience and robot intelligence, from a shared representation to scalable learning and world models.</p>
+    <h3 id="unit-series-title">The UniT line</h3>
+    <p>A shared physical language, extended through data scaling and world modeling.</p>
   </header>
 
   <div class="unit-series__publications">
     {% include pub-item.html post=unit_core series=true %}
 
-    <div class="unit-series__extensions">
+    <div class="unit-series__extensions" aria-label="Directions extending UniT">
+      <p class="unit-series__extensions-intro">Building on UniT</p>
       {% for post in unit_extensions %}
         {% include pub-item.html post=post series=true %}
       {% endfor %}

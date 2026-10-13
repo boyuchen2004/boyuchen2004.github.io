@@ -7,22 +7,26 @@
     </div>
   {% endif %}
   <div class="pub-body">
-    <h3 class="pub-title"><a href="{{ post.url | prepend: base_path }}" title="{{ post.title | escape }}">{{ post.display_name | default: post.title }}</a></h3>
-    {% if post.display_summary %}<p class="pub-summary">{{ post.display_summary }}</p>{% endif %}
-    <details class="pub-authors-expand">
-      <summary>{{ post.authors_short | default: post.authors }} <span class="pub-authors-toggle">Details</span></summary>
-      <p class="pub-full-title">{{ post.title }}</p>
-      {% if post.authors_short %}<p class="pub-authors">{{ post.authors }}</p>{% endif %}
-      {% if post.notes %}<p class="pub-notes">{{ post.notes }}</p>{% endif %}
-      {% if post.venue %}<p class="pub-venue">{{ post.venue }}, {{ post.date | date: "%Y" }}</p>{% endif %}
-    </details>
-    {% if post.excerpt %}<div class="pub-excerpt">{{ post.excerpt | markdownify }}</div>{% endif %}
-    {% include pub-metrics.html post=post %}
+  <header class="pub-heading">
+    {% if post.series_role == 'scaling' %}<p class="pub-direction">Data scaling</p>{% elsif post.series_role == 'world-model' %}<p class="pub-direction">World modeling</p>{% endif %}
+    <h3 class="pub-title"><a href="{{ post.url | prepend: base_path }}" title="{{ post.title | escape }}">{{ post.title }}</a></h3>
+    <p class="pub-authors">{% assign author_names = post.authors | split: ", " %}{% for author_name in author_names %}<span class="pub-author">{{ author_name }}{% unless forloop.last %},{% endunless %}</span>{% unless forloop.last %} {% endunless %}{% endfor %}</p>
+    {% if post.notes %}<p class="pub-notes">{{ post.notes }}</p>{% endif %}
+    {% if post.venue and post.acceptance_banner == nil %}<p class="pub-venue">{{ post.venue }} · {{ post.date | date: "%Y" }}</p>{% endif %}
+  </header>
+    {% if post.excerpt %}<div class="pub-tldr"><span class="pub-tldr__label">TL;DR</span> {{ post.display_tldr | default: post.series_summary | default: post.excerpt | markdownify }}</div>{% endif %}
     <p class="pub-links">
-      {% if post.projecturl %}<a href="{{ post.projecturl }}">Project Page</a>{% endif %}
+      {% if post.projecturl %}<a href="{{ post.projecturl }}">Project</a>{% endif %}
       {% if post.paperurl %}{% if post.projecturl %} · {% endif %}<a href="{% if post.paperurl contains '://' %}{{ post.paperurl }}{% else %}{{ post.paperurl | prepend: base_path }}{% endif %}">Paper</a>{% endif %}
       {% if post.codeurl %}{% if post.projecturl or post.paperurl %} · {% endif %}<a href="{{ post.codeurl }}">Code</a>{% endif %}
       {% if post.bibtexurl %}{% if post.projecturl or post.paperurl or post.codeurl %} · {% endif %}<a href="{{ post.bibtexurl | prepend: base_path }}">BibTeX</a> · <a href="{{ post.url | prepend: base_path }}#citation">Citation details</a>{% endif %}
     </p>
+    {% include pub-metrics.html post=post subtle=true %}
+    {% if post.citation_abstract %}
+    <details class="pub-abstract">
+      <summary>Abstract <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="m5 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="pub-abstract__content">{{ post.citation_abstract | markdownify }}</div>
+    </details>
+    {% endif %}
   </div>
 </article>

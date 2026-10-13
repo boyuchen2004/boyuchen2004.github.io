@@ -1,5 +1,6 @@
 ---
 title: "AnyWorld: Factorized Egocentric World Models for Cross-Embodiment Generalization"
+display_tldr: "**Extending UniT through world modeling**, AnyWorld turns human interactions into **controllable, robot-native experience** for policy adaptation."
 display_name: "AnyWorld"
 display_summary: "Learning through world models"
 collection: publications

@@ -1,29 +1,36 @@
 {% assign metrics = include.post.community_metrics %}
 {% if metrics %}
+{% if include.subtle %}{% assign badge_bg = "f1f3f5" %}{% assign badge_ink = "53616e" %}{% else %}{% assign badge_bg = "444" %}{% assign badge_ink = "fff" %}{% endif %}
 <div class="pub-metrics" aria-label="Community recognition and project metrics">
   {% if metrics.hf_rank %}
     <a href="{{ metrics.hf_rank_url }}" title="Hugging Face Daily Papers #{{ metrics.hf_rank }} · {{ metrics.hf_rank_date }}">
-      <img src="https://img.shields.io/badge/HF%20Daily-%23{{ metrics.hf_rank }}-FFD21E?logo=huggingface&amp;logoColor=white&amp;labelColor=444&amp;style=flat" alt="Hugging Face Daily Papers #{{ metrics.hf_rank }}" height="20">
+      <img src="https://img.shields.io/badge/HF%20Daily-%23{{ metrics.hf_rank }}-FFD21E?logo=huggingface&amp;logoColor={{ badge_ink }}&amp;labelColor={{ badge_bg }}&amp;style=flat" alt="Hugging Face Daily Papers #{{ metrics.hf_rank }}" height="20">
     </a>
   {% elsif metrics.hf_url %}
     <a href="{{ metrics.hf_url }}" title="View on Hugging Face Papers">
-      <img src="https://img.shields.io/badge/Hugging%20Face-Papers-FFD21E?logo=huggingface&amp;logoColor=white&amp;labelColor=444&amp;style=flat" alt="Hugging Face Papers" height="20">
+      <img src="https://img.shields.io/badge/Hugging%20Face-Papers-FFD21E?logo=huggingface&amp;logoColor={{ badge_ink }}&amp;labelColor={{ badge_bg }}&amp;style=flat" alt="Hugging Face Papers" height="20">
+    </a>
+  {% endif %}
+  {% if metrics.hf_model %}
+    {% assign model_api = "https://huggingface.co/api/models/" | append: metrics.hf_model %}
+    <a href="https://huggingface.co/{{ metrics.hf_model }}" title="Hugging Face model downloads in the last month · automatically refreshed">
+      <img src="https://img.shields.io/badge/dynamic/json?url={{ model_api | url_encode }}&amp;query=%24.downloads&amp;label=Downloads%2Fmonth&amp;logo=huggingface&amp;logoColor={{ badge_ink }}&amp;labelColor={{ badge_bg }}&amp;color=e6ebef&amp;style=flat&amp;cacheSeconds=300" alt="Hugging Face model downloads in the last month (live)" height="20">
     </a>
   {% endif %}
   {% if include.post.codeurl %}
     {% assign github_repo = include.post.codeurl | remove: "https://github.com/" %}
     <a href="{{ include.post.codeurl }}/stargazers" title="GitHub stars · automatically refreshed by Shields.io">
-      <img src="https://img.shields.io/github/stars/{{ github_repo }}?logo=github&amp;label=Stars&amp;style=flat&amp;color=181717&amp;cacheSeconds=300" alt="GitHub stars (live)" height="20">
+      <img src="https://img.shields.io/github/stars/{{ github_repo }}?logo=github&amp;label=Stars&amp;style=flat&amp;labelColor={{ badge_bg }}&amp;color={% if include.subtle %}e6ebef{% else %}181717{% endif %}&amp;logoColor={{ badge_ink }}&amp;cacheSeconds=300" alt="GitHub stars (live)" height="20">
     </a>
   {% endif %}
   {% if metrics.scholar_url %}
     {% assign paper_id = metrics.scholar_url | split: "/" | last %}
     <a class="pub-metrics__scholar" href="{{ metrics.scholar_url }}" data-paper-id="{{ paper_id }}" data-checked="{{ metrics.checked }}" data-count="{{ metrics.scholar_citations }}" title="Semantic Scholar{% if metrics.scholar_citations != nil %}: {{ metrics.scholar_citations }} citations, last verified {{ metrics.checked }}{% else %}: citation count not yet available{% endif %}. Automatic refresh pending.">
       <svg xmlns="http://www.w3.org/2000/svg" width="120" height="20" viewBox="0 0 120 20" role="img" aria-label="Semantic Scholar citations{% if metrics.scholar_citations != nil %}: {{ metrics.scholar_citations }}{% endif %}">
-        <rect width="120" height="20" rx="3" fill="#1857B6"/>
-        <path d="M3 0h91v20H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3z" fill="#444"/>
-        <g transform="translate(5 3) scale(.58)" fill="#fff"><path d="M24 8.609c-.848.536-1.436.83-2.146 1.245-4.152 2.509-8.15 5.295-11.247 8.981l-1.488 1.817-4.568-7.268c1.021.814 3.564 3.098 4.603 3.599l3.356-2.526c2.336-1.644 8.946-5.226 11.49-5.848ZM8.046 15.201c.346.277.692.537.969.744.761-3.668.121-7.613-1.886-11.039 3.374-.052 6.731-.087 10.105-.139a14.794 14.794 0 0 1 1.298 5.295c.294-.156.588-.294.883-.433-.104-1.868-.641-3.91-1.662-6.263-4.602-.018-9.188-.018-13.79-.018 2.993 3.547 4.36 7.839 4.083 11.853Zm-.623-.484c.087.086.191.155.277.225-.138-3.409-1.419-6.887-3.824-9.881H1.73c3.098 2.855 4.984 6.299 5.693 9.656Zm-.744-.658c.104.087.208.173.329.277-.9-2.526-2.492-5.018-4.741-7.198H0c2.89 2.076 5.122 4.481 6.679 6.921Z"/></g>
-        <g fill="#fff" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11" text-anchor="middle">
+        <rect width="120" height="20" rx="3" fill="{% if include.subtle %}#e6ebef{% else %}#1857B6{% endif %}"/>
+        <path d="M3 0h91v20H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3z" fill="#{{ badge_bg }}"/>
+        <g transform="translate(5 3) scale(.58)" fill="#{{ badge_ink }}"><path d="M24 8.609c-.848.536-1.436.83-2.146 1.245-4.152 2.509-8.15 5.295-11.247 8.981l-1.488 1.817-4.568-7.268c1.021.814 3.564 3.098 4.603 3.599l3.356-2.526c2.336-1.644 8.946-5.226 11.49-5.848ZM8.046 15.201c.346.277.692.537.969.744.761-3.668.121-7.613-1.886-11.039 3.374-.052 6.731-.087 10.105-.139a14.794 14.794 0 0 1 1.298 5.295c.294-.156.588-.294.883-.433-.104-1.868-.641-3.91-1.662-6.263-4.602-.018-9.188-.018-13.79-.018 2.993 3.547 4.36 7.839 4.083 11.853Zm-.623-.484c.087.086.191.155.277.225-.138-3.409-1.419-6.887-3.824-9.881H1.73c3.098 2.855 4.984 6.299 5.693 9.656Zm-.744-.658c.104.087.208.173.329.277-.9-2.526-2.492-5.018-4.741-7.198H0c2.89 2.076 5.122 4.481 6.679 6.921Z"/></g>
+        <g fill="#{{ badge_ink }}" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11" text-anchor="middle">
           <text x="56" y="14">Citations</text>
           <text data-citation-value x="107" y="14">{{ metrics.scholar_citations | default: "–" }}</text>
         </g>
