@@ -54,6 +54,9 @@ keywords:
   - "Physical intelligence"
 community_metrics:
   checked: "2026-10-12"
+  hf_rank: 1
+  hf_rank_date: "2026-10-13"
+  hf_rank_url: "https://huggingface.co/papers/date/2026-10-13"
   hf_model: "GroundingPI/GroundingPI"
   hf_url: "https://huggingface.co/papers/2609.39601"
   github_stars: 18
