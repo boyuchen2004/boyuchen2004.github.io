@@ -1,0 +1,4 @@
+---
+layout: null
+---
+{{ site.data.publication_metrics | jsonify }}

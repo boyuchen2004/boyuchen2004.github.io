@@ -1,0 +1,49 @@
+name: Refresh publication metrics
+
+on:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/publication-metrics.yml'
+      - 'scripts/update-publication-metrics.py'
+      - '_publications/**'
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: publication-metrics
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Refresh official sources
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/update-publication-metrics.py
+      - name: Save updated metrics and rebuild the existing Pages site
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- _data/publication_metrics.json && test -f _data/publication_metrics.json; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _data/publication_metrics.json
+          git commit -m 'Refresh publication metrics from official sources'
+          git pull --rebase origin master
+          git push origin HEAD:master
+          # GITHUB_TOKEN pushes do not trigger Pages; explicitly request its native build.
+          gh api --method POST repos/${{ github.repository }}/pages/builds
