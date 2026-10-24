@@ -1,27 +1,27 @@
 {
   "github:groundingpi/GroundingPI": {
-    "attempted_at": "2026-10-23T23:30:39+00:00",
-    "count": 166,
+    "attempted_at": "2026-10-24T01:00:15+00:00",
+    "count": 168,
     "source": "https://api.github.com/repos/groundingpi/GroundingPI",
     "status": "ok",
-    "updated_at": "2026-10-23T23:30:39+00:00"
+    "updated_at": "2026-10-24T01:00:15+00:00"
   },
   "github:xpeng-robotics/AnyWorld": {
-    "attempted_at": "2026-10-23T23:30:39+00:00",
+    "attempted_at": "2026-10-24T01:00:15+00:00",
     "count": 30,
     "source": "https://api.github.com/repos/xpeng-robotics/AnyWorld",
     "status": "ok",
-    "updated_at": "2026-10-23T23:30:39+00:00"
+    "updated_at": "2026-10-24T01:00:15+00:00"
   },
   "github:xpeng-robotics/UniT": {
-    "attempted_at": "2026-10-23T23:30:39+00:00",
+    "attempted_at": "2026-10-24T01:00:15+00:00",
     "count": 104,
     "source": "https://api.github.com/repos/xpeng-robotics/UniT",
     "status": "ok",
-    "updated_at": "2026-10-23T23:30:39+00:00"
+    "updated_at": "2026-10-24T01:00:15+00:00"
   },
   "semantic:1c36737b788f020ef9881a417275ed3d6a55844d": {
-    "attempted_at": "2026-10-23T23:30:39+00:00",
+    "attempted_at": "2026-10-24T01:00:15+00:00",
     "count": 2,
     "error": "HTTP Error 429: ",
     "source": "https://api.semanticscholar.org/graph/v1/paper/1c36737b788f020ef9881a417275ed3d6a55844d?fields=citationCount",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T12:42:55+00:00"
   },
   "semantic:a6a5b912d369bad8b95a833e0d6c9841f1c47fe0": {
-    "attempted_at": "2026-10-23T23:30:39+00:00",
+    "attempted_at": "2026-10-24T01:00:15+00:00",
     "count": 18,
     "error": "HTTP Error 429: ",
     "source": "https://api.semanticscholar.org/graph/v1/paper/a6a5b912d369bad8b95a833e0d6c9841f1c47fe0?fields=citationCount",
@@ -37,7 +37,7 @@
     "updated_at": "2026-10-23T15:34:56+00:00"
   },
   "semantic:d29282bee802ec6211b801acc66f4023405038ae": {
-    "attempted_at": "2026-10-23T23:30:39+00:00",
+    "attempted_at": "2026-10-24T01:00:15+00:00",
     "count": 3,
     "error": "HTTP Error 429: ",
     "source": "https://api.semanticscholar.org/graph/v1/paper/d29282bee802ec6211b801acc66f4023405038ae?fields=citationCount",
