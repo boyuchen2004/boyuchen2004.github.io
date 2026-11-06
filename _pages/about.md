@@ -46,7 +46,7 @@ Selected research {#publications}
   <div>
     <strong>B.Eng. in Automation</strong><br />
     Department of Automation, Tsinghua University<br />
-    Sep 2022 – 2026 · GPA <strong>4.0 / 4.0</strong> · Ranked <strong>1 / 145</strong>
+    Sep 2022 – 2026 · GPA <strong>4.0 / 4.0</strong> · <strong class="award-highlight">Ranked 1 / 145</strong>
   </div>
 </div>
 
