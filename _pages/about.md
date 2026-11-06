@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am Boyu Chen (陈博俣), a first-year PhD student at MMLab, The University of Hong Kong, advised by Prof. [Ping Luo](https://luoping.me/), Prof. [Shenghua Gao](https://datascience.hku.hk/people/shenghua-gao/), and Prof. [Yi Ma](https://people.eecs.berkeley.edu/~yima/).
+I am Boyu Chen (陈博俣), a first-year PhD student at [MMLab](https://mmlab.hk/), [The University of Hong Kong](https://www.hku.hk/), advised by Prof. [Ping Luo](https://luoping.me/), Prof. [Shenghua Gao](https://datascience.hku.hk/people/shenghua-gao/), and Prof. [Yi Ma](https://people.eecs.berkeley.edu/~yima/).
 
 Previously, I studied Automation at Tsinghua University.
 
@@ -33,9 +33,10 @@ Selected research {#publications}
 🎓 Education
 ======
 <div class="edu">
+  <img src="/images/hku_logo.svg" alt="The University of Hong Kong" />
   <div>
     <strong>PhD student</strong><br />
-    The University of Hong Kong · MMLab<br />
+    The University of Hong Kong · <a href="https://mmlab.hk/">MMLab</a><br />
     Sep 2026 – Present · First year
   </div>
 </div>
@@ -51,8 +52,8 @@ Selected research {#publications}
 
 🏆 Honors & Awards
 ======
-* **National Scholarship** (highest scholarship given by the government of China), Dec 2025
-* **National Scholarship** (highest scholarship given by the government of China), Dec 2024
+* <strong class="award-highlight">National Scholarship</strong> (highest scholarship given by the government of China), Dec 2025
+* <strong class="award-highlight">National Scholarship</strong> (highest scholarship given by the government of China), Dec 2024
 * Tsinghua University Comprehensive Excellence Scholarship (Top 10 / 145), Dec 2023
 * First Prize, National College Mathematics Competition (Non-Math Group A), Dec 2023
 * First Prize, National College Physics Competition (Non-Physics Group A), Dec 2023

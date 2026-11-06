@@ -388,6 +388,17 @@ b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a,
   }
 }
 
+.award-highlight {
+  color: #805500;
+  background: #fff1bf;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+html[data-theme="dark"] .award-highlight {
+  color: #ffe29a;
+  background: #493d20;
+}
+
 /* Plain (no-logo) timeline entry, visually parallel to .edu */
 .entry {
   margin-bottom: 1em;
