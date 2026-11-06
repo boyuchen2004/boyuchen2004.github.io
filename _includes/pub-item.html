@@ -1,5 +1,5 @@
 {% assign post = include.post %}
-<article class="pub-item{% if include.series %} pub-item--series pub-item--{{ post.series_role }}{% endif %}{% if post.story_title %} pub-item--independent{% endif %}" id="publication-{{ post.slug }}">
+<article class="pub-item{% if include.series %} pub-item--series pub-item--{{ post.series_role }}{% endif %}{% if post.story_title %} pub-item--independent{% endif %}{% if post.highlight %} pub-item--highlight{% endif %}" id="publication-{{ post.slug }}">
   {% if post.teaser %}
     <div class="pub-teaser">
       <img src="{{ post.teaser | prepend: base_path }}" alt="{{ post.title | escape }}" />
@@ -8,10 +8,11 @@
   {% endif %}
   <div class="pub-body">
   <header class="pub-heading">
+    {% if post.highlight %}<span class="pub-highlight-label">Highlight</span>{% endif %}
     {% if post.series_role == 'scaling' %}<p class="pub-direction">Data scaling</p>{% elsif post.series_role == 'world-model' %}<p class="pub-direction">World modeling</p>{% endif %}
     <h3 class="pub-title"><a href="{{ post.url | prepend: base_path }}" title="{{ post.title | escape }}">{{ post.title }}</a></h3>
-    <p class="pub-authors">{% assign author_names = post.authors | split: ", " %}{% for author_name in author_names %}<span class="pub-author">{{ author_name }}{% unless forloop.last %},{% endunless %}</span>{% unless forloop.last %} {% endunless %}{% endfor %}</p>
-    {% if post.notes %}<p class="pub-notes">{{ post.notes }}</p>{% endif %}
+    <p class="pub-authors">{% if post.display_authors %}{{ post.display_authors }}{% else %}{% assign author_names = post.authors | split: ", " %}{% for author_name in author_names %}<span class="pub-author">{{ author_name }}{% unless forloop.last %},{% endunless %}</span>{% unless forloop.last %} {% endunless %}{% endfor %}{% endif %}</p>
+    {% if post.notes and post.display_authors == nil %}<p class="pub-notes">{{ post.notes }}</p>{% endif %}
     {% if post.venue and post.acceptance_banner == nil %}<p class="pub-venue">{{ post.venue }} · {{ post.date | date: "%Y" }}</p>{% endif %}
   </header>
     {% if post.excerpt %}<div class="pub-tldr"><span class="pub-tldr__label">TL;DR</span> {{ post.display_tldr | default: post.series_summary | default: post.excerpt | markdownify }}</div>{% endif %}
@@ -21,6 +22,11 @@
       {% if post.codeurl %}{% if post.projecturl or post.paperurl %} · {% endif %}<a href="{{ post.codeurl }}">Code</a>{% endif %}
       {% if post.bibtexurl %}{% if post.projecturl or post.paperurl or post.codeurl %} · {% endif %}<a href="{{ post.bibtexurl | prepend: base_path }}">BibTeX</a> · <a href="{{ post.url | prepend: base_path }}#citation">Citation details</a>{% endif %}
     </p>
+    {% if post.community_links %}
+    <p class="pub-community-links">
+      {% for link in post.community_links %}<a href="{{ link.url }}"{% if link.lang %} lang="{{ link.lang }}"{% endif %}>{{ link.label }}</a>{% unless forloop.last %}<span aria-hidden="true"> · </span>{% endunless %}{% endfor %}
+    </p>
+    {% endif %}
     {% include pub-metrics.html post=post subtle=true %}
     {% if post.citation_abstract %}
     <details class="pub-abstract">

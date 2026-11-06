@@ -4,10 +4,10 @@
 {% assign unit_extensions = unit_series | where_exp: "post", "post.series_role != 'core'" | sort: "series_order" %}
 {% assign other_publications = site.publications | where_exp: "post", "post.series_role == nil" | reverse %}
 
-<section class="unit-series" aria-labelledby="unit-series-title">
+<section class="unit-series" aria-labelledby="action-representation">
   <header class="unit-series__intro">
-    <h3 id="unit-series-title">The UniT line</h3>
-    <p>A shared physical language, extended through data scaling and world modeling.</p>
+    <h3 id="action-representation">Action representation</h3>
+    <p>A shared physical language across humans and robots, extended through data scaling and world modeling.</p>
   </header>
 
   <div class="unit-series__publications">
@@ -29,6 +29,7 @@
         <section class="unit-series" aria-labelledby="story-{{ post.slug }}">
           <header class="unit-series__intro">
             <h3 id="story-{{ post.slug }}">{{ post.story_title }}</h3>
+            {% if post.story_summary %}<p>{{ post.story_summary }}</p>{% endif %}
           </header>
           {% include pub-item.html post=post %}
         </section>
